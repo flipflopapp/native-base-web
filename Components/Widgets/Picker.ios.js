@@ -2,9 +2,11 @@
 'use strict';
 
 import React from 'react';
+import { connectStyle } from 'native-base-shoutem-theme';
 import {Picker, Modal} from 'react-native';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import computeProps from '../../Utils/computeProps';
+import mapPropsToStyleNames from '../../Utils/mapPropsToStyleNames';
 import View from './View';
 import Text from './Text';
 import List from './List';
@@ -16,8 +18,10 @@ import Button from './Button';
 import Header from './Header';
 import Title from './Title';
 import _ from 'lodash';
+import createReactClass from 'create-react-class';
 
-export default class PickerNB extends NativeBaseComponent {
+
+class PickerNB extends NativeBaseComponent {
 
     
     constructor(props) {
@@ -98,7 +102,7 @@ export default class PickerNB extends NativeBaseComponent {
 
 }
 
-PickerNB.Item = React.createClass({
+PickerNB.Item = createReactClass({
 
     render: function() {
         return(
@@ -106,3 +110,9 @@ PickerNB.Item = React.createClass({
           );
     }
 });
+
+export default connectStyle(
+    "NativeBase.Picker",
+    {},
+    mapPropsToStyleNames
+  )(PickerNB);

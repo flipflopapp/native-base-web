@@ -2,11 +2,13 @@
 'use strict';
 
 import React from 'react';
+import { connectStyle } from 'native-base-shoutem-theme';
 import { View, Animated } from 'react-native';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
+import mapPropsToStyleNames from '../../Utils/mapPropsToStyleNames';
 import _ from 'lodash';
 
-export default class TouchableOpacityScrollable extends NativeBaseComponent {
+class TouchableOpacityScrollable extends NativeBaseComponent {
 
     constructor(props) {
         super(props);
@@ -86,3 +88,9 @@ export default class TouchableOpacityScrollable extends NativeBaseComponent {
     }
 
 }
+
+export default connectStyle(
+    "NativeBase.TouchableOpacityScrollable",
+    {},
+    mapPropsToStyleNames
+  )(TouchableOpacityScrollable);

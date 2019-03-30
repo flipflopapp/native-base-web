@@ -3,9 +3,11 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connectStyle } from 'native-base-shoutem-theme';
 import Platform from '../../Utils/platform';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import computeProps from '../../Utils/computeProps';
+import mapPropsToStyleNames from '../../Utils/mapPropsToStyleNames';
 import Button from './Button';
 import View from './View';
 import Title from './Title';
@@ -13,7 +15,7 @@ import InputGroup from './InputGroup';
 import Subtitle from './Subtitle';
 import _ from 'lodash';
 
-export default class Header extends NativeBaseComponent {
+class Header extends NativeBaseComponent {
 
     propTypes: {
         searchBar : PropTypes.bool,
@@ -168,3 +170,9 @@ export default class Header extends NativeBaseComponent {
         );
     }
 }
+
+export default connectStyle(
+    "NativeBase.Header",
+    {},
+    mapPropsToStyleNames
+  )(Header);

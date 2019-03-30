@@ -2,11 +2,13 @@
 'use strict';
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connectStyle } from 'native-base-shoutem-theme';
 import {View, TextInput} from 'react-native';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import computeProps from '../../Utils/computeProps';
+import mapPropsToStyleNames from '../../Utils/mapPropsToStyleNames';
 
-export default class Input extends NativeBaseComponent {
+class Input extends NativeBaseComponent {
 
     propTypes: {
         style : PropTypes.object
@@ -42,3 +44,9 @@ export default class Input extends NativeBaseComponent {
     }
 
 }
+
+export default connectStyle(
+    "NativeBase.Input",
+    {},
+    mapPropsToStyleNames
+  )(Input);

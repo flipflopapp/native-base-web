@@ -3,10 +3,12 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connectStyle } from 'native-base-shoutem-theme';
 import {Image, TouchableWithoutFeedback } from 'react-native';
 import Platform from '../../Utils/platform';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import computeProps from '../../Utils/computeProps';
+import mapPropsToStyleNames from '../../Utils/mapPropsToStyleNames';
 import Icon from './Icon';
 import Text from './Text';
 import View from './View';
@@ -19,7 +21,8 @@ import InputGroup from './InputGroup';
 import TouchableOpacityScrollable from './TouchableOpacityScrollable';
 import _ from 'lodash';
 
-export default class ListItemNB extends NativeBaseComponent {
+
+class ListItemNB extends NativeBaseComponent {
 
     propTypes: {
         style : PropTypes.object,
@@ -538,3 +541,9 @@ export default class ListItemNB extends NativeBaseComponent {
     }
 
 }
+
+export default connectStyle(
+    "NativeBase.ListItem",
+    {},
+    mapPropsToStyleNames
+  )(ListItemNB);

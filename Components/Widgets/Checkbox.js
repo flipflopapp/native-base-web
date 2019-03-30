@@ -3,11 +3,13 @@
 
 import React from 'react';
 import {View} from 'react-native';
+import { connectStyle } from 'native-base-shoutem-theme';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import Icon from './Icon';
 import Platform from '../../Utils/platform';
+import mapPropsToStyleNames from '../../Utils/mapPropsToStyleNames';
 
-export default class CheckBox extends NativeBaseComponent {
+class CheckBox extends NativeBaseComponent {
 
     getInitialStyle() {
         return {
@@ -39,3 +41,9 @@ export default class CheckBox extends NativeBaseComponent {
         );
     }
 }
+
+export default connectStyle(
+    "NativeBase.CheckBox",
+    {},
+    mapPropsToStyleNames
+  )(CheckBox);

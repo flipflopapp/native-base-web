@@ -3,17 +3,18 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connectStyle } from 'native-base-shoutem-theme';
 import { TouchableOpacity } from 'react-native';
 import Platform from '../../Utils/platform';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
+import mapPropsToStyleNames from '../../Utils/mapPropsToStyleNames';
 import computeProps from '../../Utils/computeProps';
 import IconNB from './Icon';
 import Icon from './Icon';
 import Text from './Text';
 import _ from 'lodash';
 
-
-export default class Button extends NativeBaseComponent {
+class Button extends NativeBaseComponent {
 
     propTypes: {
         style : PropTypes.object,
@@ -196,3 +197,9 @@ export default class Button extends NativeBaseComponent {
         );
     }
 }
+
+export default connectStyle(
+    "NativeBase.Button",
+    {},
+    mapPropsToStyleNames
+)(Button);

@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { connectStyle } from 'native-base-shoutem-theme';
 import PropTypes from 'prop-types';
 import { TabBarIOS } from 'react-native';
 import Icon from './Icon';
+import mapPropsToStyleNames from '../../Utils/mapPropsToStyleNames';
 
 class TabBarItem extends Component {
 
@@ -35,4 +37,8 @@ class TabBarItem extends Component {
 
 }
 
-export default TabBarItem;
+export default connectStyle(
+    "NativeBase.TabBarItem",
+    {},
+    mapPropsToStyleNames
+  )(TabBarItem);

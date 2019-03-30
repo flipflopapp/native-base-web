@@ -2,13 +2,15 @@
 'use strict';
 
 import React from 'react';
+import { connectStyle } from 'native-base-shoutem-theme';
 import PropTypes from 'prop-types';
 import {Text} from 'react-native';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import computeProps from '../../Utils/computeProps';
+import mapPropsToStyleNames from '../../Utils/mapPropsToStyleNames';
 
 
-export default class TextNB extends NativeBaseComponent {
+class TextNB extends NativeBaseComponent {
 
 	propTypes: {
         style : PropTypes.object
@@ -37,3 +39,9 @@ export default class TextNB extends NativeBaseComponent {
 	}
 
 }
+
+export default connectStyle(
+	"NativeBase.Text",
+	{},
+	mapPropsToStyleNames
+)(TextNB);

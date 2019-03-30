@@ -3,13 +3,15 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connectStyle } from 'native-base-shoutem-theme';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import computeProps from '../../Utils/computeProps';
+import mapPropsToStyleNames from '../../Utils/mapPropsToStyleNames';
 import TabBarItem from './TabBarItem';
 
-import variables from '../Themes/light';
+const THEME_STYLE = "@@shoutem.theme/themeStyle";
 
-export default class IconNB extends NativeBaseComponent {
+class IconNB extends NativeBaseComponent {
 
     static TabBarItem = TabBarItem;
 
@@ -62,13 +64,16 @@ export default class IconNB extends NativeBaseComponent {
     }
 
     render() {
-        if (this.props.family) {
-            this.setIconFamily(this.props.family);
-        } else {
-            this.setIconFamily(variables.iconFamily)
-        }
+        const iconFamily = this.props.family ?  this.props.family : this.getTheme().iconFamily;
+        this.setIconFamily(iconFamily);
         return(
             <this.Icon {...this.prepareRootProps()}/>
         );
     }
 }
+
+export default connectStyle(
+    "NativeBase.Icon",
+    {},
+    mapPropsToStyleNames
+  )(IconNB);

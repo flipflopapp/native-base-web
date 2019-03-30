@@ -4,8 +4,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Image} from 'react-native';
+import { connectStyle } from 'native-base-shoutem-theme';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import computeProps from '../../Utils/computeProps';
+import mapPropsToStyleNames from '../../Utils/mapPropsToStyleNames';
 import Icon from './Icon';
 import Text from './Text';
 import View from './View';
@@ -13,7 +15,7 @@ import Button from './Button';
 import Thumbnail from './Thumbnail';
 import _ from 'lodash';
 
-export default class CardItemNB extends NativeBaseComponent {
+class CardItemNB extends NativeBaseComponent {
 
     propTypes: {
         style : PropTypes.object,
@@ -298,3 +300,6 @@ export default class CardItemNB extends NativeBaseComponent {
         );
     }
 }
+
+export default connectStyle("NativeBase.CardItem", {}, mapPropsToStyleNames)(CardItemNB);
+

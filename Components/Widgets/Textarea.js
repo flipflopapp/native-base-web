@@ -2,12 +2,14 @@
 'use strict';
 
 import React from 'react';
+import { connectStyle } from 'native-base-shoutem-theme';
 import PropTypes from 'prop-types';
 import {View, TextInput} from 'react-native';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import computeProps from '../../Utils/computeProps';
+import mapPropsToStyleNames from '../../Utils/mapPropsToStyleNames';
 
-export default class Textarea extends NativeBaseComponent {
+class Textarea extends NativeBaseComponent {
 
 	propTypes: {
         style : PropTypes.object
@@ -64,3 +66,9 @@ export default class Textarea extends NativeBaseComponent {
 	}
 
 }
+
+export default connectStyle(
+	"NativeBase.Textarea",
+	{},
+	mapPropsToStyleNames
+)(Textarea);

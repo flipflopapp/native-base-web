@@ -2,12 +2,14 @@
 'use strict';
 
 import React from 'react';
+import { connectStyle } from 'native-base-shoutem-theme';
 import {View} from 'react-native';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import Icon from './Icon';
 import Platform from '../../Utils/platform';
+import mapPropsToStyleNames from '../../Utils/mapPropsToStyleNames';
 
-export default class Radio extends NativeBaseComponent {
+class Radio extends NativeBaseComponent {
 
     getInitialStyle() {
         return {
@@ -27,3 +29,9 @@ export default class Radio extends NativeBaseComponent {
         );
     }
 }
+
+export default connectStyle(
+    "NativeBase.Radio",
+    {},
+    mapPropsToStyleNames
+  )(Radio);

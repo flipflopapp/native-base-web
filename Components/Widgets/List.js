@@ -3,12 +3,14 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connectStyle } from 'native-base-shoutem-theme';
 import {View, ListView} from 'react-native';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import computeProps from '../../Utils/computeProps';
+import mapPropsToStyleNames from '../../Utils/mapPropsToStyleNames';
 import _ from 'lodash';
 
-export default class ListNB extends NativeBaseComponent {
+class ListNB extends NativeBaseComponent {
 
     propTypes: {
         style : PropTypes.object,
@@ -78,3 +80,9 @@ export default class ListNB extends NativeBaseComponent {
         }
     }
 }
+
+export default connectStyle(
+    "NativeBase.List",
+    {},
+    mapPropsToStyleNames
+  )(ListNB);

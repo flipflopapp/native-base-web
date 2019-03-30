@@ -3,12 +3,14 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connectStyle } from 'native-base-shoutem-theme';
 import Text from './Text';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import computeProps from '../../Utils/computeProps';
+import mapPropsToStyleNames from '../../Utils/mapPropsToStyleNames';
 
 
-export default class H2NB extends NativeBaseComponent {
+class H2NB extends NativeBaseComponent {
 
     propTypes: {
         style : PropTypes.object
@@ -34,3 +36,9 @@ export default class H2NB extends NativeBaseComponent {
     }
 
 }
+
+export default connectStyle(
+    "NativeBase.H2",
+    {},
+    mapPropsToStyleNames
+  )(H2NB);

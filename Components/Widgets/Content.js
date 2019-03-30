@@ -3,11 +3,13 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connectStyle } from 'native-base-shoutem-theme';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import computeProps from '../../Utils/computeProps';
+import mapPropsToStyleNames from '../../Utils/mapPropsToStyleNames';
 import { ScrollView } from 'react-native';
 
-export default class Content extends NativeBaseComponent {
+class Content extends NativeBaseComponent {
 
 	propTypes: {
         padder : PropTypes.bool,
@@ -36,3 +38,9 @@ export default class Content extends NativeBaseComponent {
 		);
 	}
 }
+
+export default connectStyle(
+  "NativeBase.Content",
+  {},
+  mapPropsToStyleNames
+)(Content);

@@ -3,14 +3,16 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connectStyle } from 'native-base-shoutem-theme';
 import { Dimensions } from 'react-native';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import computeProps from '../../Utils/computeProps';
+import mapPropsToStyleNames from '../../Utils/mapPropsToStyleNames';
 import ScrollableTabView from './../vendor/react-native-scrollable-tab-view';
 import View from './View';
 import _ from 'lodash';
 
-export default class TabNB extends NativeBaseComponent {
+class TabNB extends NativeBaseComponent {
 
     propTypes: {
         style : PropTypes.object
@@ -67,3 +69,9 @@ export default class TabNB extends NativeBaseComponent {
     }
 
 }
+
+export default connectStyle(
+    "NativeBase.Tab",
+    {},
+    mapPropsToStyleNames
+  )(TabNB);

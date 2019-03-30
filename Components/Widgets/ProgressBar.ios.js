@@ -3,13 +3,13 @@
 
 import React from 'react';
 import { ProgressViewIOS} from 'react-native';
+import { connectStyle } from 'native-base-shoutem-theme';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 // import computeProps from '../../Utils/computeProps';
+import mapPropsToStyleNames from '../../Utils/mapPropsToStyleNames';
 
 
-export default class ProgressBarNB extends NativeBaseComponent {
-
-
+class ProgressBarNB extends NativeBaseComponent {
 
 	render() {
 		return(
@@ -21,3 +21,9 @@ export default class ProgressBarNB extends NativeBaseComponent {
 	}
 
 }
+
+export default connectStyle(
+	"NativeBase.ProgressBar",
+	{},
+	mapPropsToStyleNames
+)(ProgressBarNB);

@@ -3,15 +3,18 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connectStyle } from 'native-base-shoutem-theme';
 import {View} from 'react-native';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import Icon from './Icon';
 import Button from './Button';
 import computeProps from '../../Utils/computeProps';
+import mapPropsToStyleNames from '../../Utils/mapPropsToStyleNames';
 import Input from './Input';
 import _ from 'lodash';
 
-export default class InputGroup extends NativeBaseComponent {
+
+class InputGroup extends NativeBaseComponent {
 
 	propTypes: {
         borderType : PropTypes.string,
@@ -224,3 +227,9 @@ export default class InputGroup extends NativeBaseComponent {
 		);
 	}
 }
+
+export default connectStyle(
+	"NativeBase.InputGroup",
+	{},
+	mapPropsToStyleNames
+)(InputGroup);

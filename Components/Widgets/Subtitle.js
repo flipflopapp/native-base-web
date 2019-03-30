@@ -2,11 +2,13 @@
 'use strict';
 
 import React from 'react';
+import { connectStyle } from 'native-base-shoutem-theme';
 import {Text, View } from 'react-native';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import Platform from '../../Utils/platform';
+import mapPropsToStyleNames from '../../Utils/mapPropsToStyleNames';
 
-export default class Subtitle extends NativeBaseComponent {
+class Subtitle extends NativeBaseComponent {
 
 	render() {
 		return(
@@ -14,3 +16,9 @@ export default class Subtitle extends NativeBaseComponent {
 		);
 	}
 }
+
+export default connectStyle(
+	"NativeBase.Subtitle",
+	{},
+	mapPropsToStyleNames
+)(Subtitle);

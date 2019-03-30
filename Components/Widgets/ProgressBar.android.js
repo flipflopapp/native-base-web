@@ -3,11 +3,13 @@
 
 import React from 'react';
 import ProgressBar from 'ProgressBarAndroid';
+import { connectStyle } from 'native-base-shoutem-theme';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import computeProps from '../../Utils/computeProps';
+import mapPropsToStyleNames from '../../Utils/mapPropsToStyleNames';
 
 
-export default class SpinnerNB extends NativeBaseComponent {
+class SpinnerNB extends NativeBaseComponent {
 
     prepareRootProps() {
 
@@ -34,3 +36,9 @@ export default class SpinnerNB extends NativeBaseComponent {
     }
 
 }
+
+export default connectStyle(
+    "NativeBase.Spinner",
+    {},
+    mapPropsToStyleNames
+  )(SpinnerNB);

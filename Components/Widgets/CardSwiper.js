@@ -3,14 +3,15 @@
 
 import React from 'react';
 import clamp from 'clamp';
+import { connectStyle } from 'native-base-shoutem-theme';
 import {Animated, PanResponder} from 'react-native';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import View from './View';
-
+import mapPropsToStyleNames from '../../Utils/mapPropsToStyleNames';
 
 var SWIPE_THRESHOLD = 120;
 
-export default class CardSwiper extends NativeBaseComponent {
+class CardSwiper extends NativeBaseComponent {
 
     constructor(props) {
         super(props);
@@ -105,3 +106,10 @@ export default class CardSwiper extends NativeBaseComponent {
     }
 
 }
+
+export default connectStyle(
+    "NativeBase.CardSwiper",
+    {},
+    mapPropsToStyleNames
+  )(CardSwiper);
+  

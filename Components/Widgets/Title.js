@@ -2,15 +2,17 @@
 'use strict';
 
 import React from 'react';
+import { connectStyle } from 'native-base-shoutem-theme';
 import PropTypes from 'prop-types';
 import Platform from '../../Utils/platform';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import Text from './Text';
 import View from './View';
 import computeProps from '../../Utils/computeProps';
+import mapPropsToStyleNames from '../../Utils/mapPropsToStyleNames';
 
 
-export default class Title extends NativeBaseComponent {
+class Title extends NativeBaseComponent {
 
 	propTypes: {
         style : PropTypes.object
@@ -40,3 +42,9 @@ export default class Title extends NativeBaseComponent {
 			);
 	}
 }
+
+export default connectStyle(
+	"NativeBase.Title",
+	{},
+	mapPropsToStyleNames
+)(Title);
